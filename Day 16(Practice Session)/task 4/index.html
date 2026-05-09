@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Logic Builder | 6 Programs in One</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 JavaScript Logic Builder</h1>
+            <p>6 Interactive Programs | Variables | Loops | Conditionals | Functions</p>
+        </header>
+
+        <div class="programs-grid">
+            
+            <!-- Program 1: Even/Odd Checker -->
+            <div class="program-card">
+                <div class="program-header">
+                    <div class="program-icon">🔢</div>
+                    <h2>Even / Odd Checker</h2>
+                </div>
+                <div class="program-content">
+                    <div class="input-group">
+                        <label>Enter a number:</label>
+                        <input type="number" id="numberInput" placeholder="e.g., 7">
+                        <button onclick="checkEvenOdd()" class="btn-primary">Check</button>
+                    </div>
+                    <div class="result" id="evenOddResult"></div>
+                    <div class="code-hint">
+                        <details>
+                            <summary>💡 Logic</summary>
+                            <code>if (num % 2 === 0) → Even else → Odd</code>
+                        </details>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Program 2: Grade Calculator -->
+            <div class="program-card">
+                <div class="program-header">
+                    <div class="program-icon">📊</div>
+                    <h2>Grade Calculator</h2>
+                </div>
+                <div class="program-content">
+                    <div class="input-group">
+                        <label>Enter marks (0-100):</label>
+                        <input type="number" id="marksInput" min="0" max="100" placeholder="e.g., 85">
+                        <button onclick="calculateGrade()" class="btn-primary">Calculate</button>
+                    </div>
+                    <div class="result" id="gradeResult"></div>
+                    <div class="code-hint">
+                        <details>
+                            <summary>💡 Logic</summary>
+                            <code>90+=A, 80+=B, 70+=C, 60+=D, &lt;60=F</code>
+                        </details>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Program 3: Multiplication Table Generator -->
+            <div class="program-card">
+                <div class="program-header">
+                    <div class="program-icon">✖️</div>
+                    <h2>Multiplication Table</h2>
+                </div>
+                <div class="program-content">
+                    <div class="input-group">
+                        <label>Enter a number:</label>
+                        <input type="number" id="tableNumber" placeholder="e.g., 5">
+                        <button onclick="generateTable()" class="btn-primary">Generate</button>
+                    </div>
+                    <div class="result" id="tableResult"></div>
+                    <div class="code-hint">
+                        <details>
+                            <summary>💡 Logic</summary>
+                            <code>for(let i=1; i<=10; i++) { table += num × i }</code>
+                        </details>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Program 4: Prime Number Checker -->
+            <div class="program-card">
+                <div class="program-header">
+                    <div class="program-icon">🔐</div>
+                    <h2>Prime Number Checker</h2>
+                </div>
+                <div class="program-content">
+                    <div class="input-group">
+                        <label>Enter a number:</label>
+                        <input type="number" id="primeInput" placeholder="e.g., 17">
+                        <button onclick="checkPrime()" class="btn-primary">Check</button>
+                    </div>
+                    <div class="result" id="primeResult"></div>
+                    <div class="code-hint">
+                        <details>
+                            <summary>💡 Logic</summary>
+                            <code>Check divisibility from 2 to sqrt(num)</code>
+                        </details>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Program 5: Reverse a String -->
+            <div class="program-card">
+                <div class="program-header">
+                    <div class="program-icon">🔄</div>
+                    <h2>Reverse a String</h2>
+                </div>
+                <div class="program-content">
+                    <div class="input-group">
+                        <label>Enter text:</label>
+                        <input type="text" id="stringInput" placeholder="e.g., JavaScript">
+                        <button onclick="reverseString()" class="btn-primary">Reverse</button>
+                    </div>
+                    <div class="result" id="reverseResult"></div>
+                    <div class="code-hint">
+                        <details>
+                            <summary>💡 Logic</summary>
+                            <code>str.split('').reverse().join('')</code>
+                        </details>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Program 6: Find Largest Number in Array -->
+            <div class="program-card">
+                <div class="program-header">
+                    <div class="program-icon">🏆</div>
+                    <h2>Largest in Array</h2>
+                </div>
+                <div class="program-content">
+                    <div class="input-group">
+                        <label>Enter numbers (comma-separated):</label>
+                        <input type="text" id="arrayInput" placeholder="e.g., 5,12,8,23,4">
+                        <button onclick="findLargest()" class="btn-primary">Find Max</button>
+                    </div>
+                    <div class="result" id="arrayResult"></div>
+                    <div class="code-hint">
+                        <details>
+                            <summary>💡 Logic</summary>
+                            <code>Math.max(...arr) OR loop comparison</code>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Reference Section -->
+        <div class="reference-section">
+            <h3>📖 Concepts Used</h3>
+            <div class="concepts-grid">
+                <span class="concept">Variables (let, const)</span>
+                <span class="concept">Conditionals (if-else)</span>
+                <span class="concept">Loops (for, while)</span>
+                <span class="concept">Functions</span>
+                <span class="concept">Arrays</span>
+                <span class="concept">String Methods</span>
+                <span class="concept">Template Literals</span>
+                <span class="concept">Event Handlers</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

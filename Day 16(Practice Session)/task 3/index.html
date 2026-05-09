@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form | Join Us Today</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Main Registration Form using Semantic HTML -->
+        <main>
+            <form id="registrationForm" class="registration-form" action="#" method="POST" novalidate>
+                <!-- Form Header -->
+                <div class="form-header">
+                    <h1>Create Account</h1>
+                    <p>Please fill in your information to register</p>
+                </div>
+
+                <!-- Fieldset groups related form fields together -->
+                <fieldset>
+                    <legend>Personal Information</legend>
+
+                    <!-- Full Name Field -->
+                    <div class="form-group" id="nameGroup">
+                        <label for="fullname">Full Name <span class="required">*</span></label>
+                        <input type="text" 
+                               id="fullname" 
+                               name="fullname" 
+                               placeholder="Enter your full name (e.g., John Doe)"
+                               autocomplete="name"
+                               required>
+                        <div class="error-message" id="nameError"></div>
+                        <div class="hint">Enter your legal name as on ID proof</div>
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="form-group" id="emailGroup">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" 
+                               id="email" 
+                               name="email" 
+                               placeholder="you@example.com"
+                               autocomplete="email"
+                               required>
+                        <div class="error-message" id="emailError"></div>
+                        <div class="hint">We'll send verification to this email</div>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="form-group" id="passwordGroup">
+                        <label for="password">Password <span class="required">*</span></label>
+                        <input type="password" 
+                               id="password" 
+                               name="password" 
+                               placeholder="Create a strong password"
+                               autocomplete="new-password"
+                               required>
+                        <div class="error-message" id="passwordError"></div>
+                        <div class="hint">Minimum 8 characters with letters and numbers</div>
+                    </div>
+
+                    <!-- Age Field -->
+                    <div class="form-group" id="ageGroup">
+                        <label for="age">Age <span class="required">*</span></label>
+                        <input type="number" 
+                               id="age" 
+                               name="age" 
+                               placeholder="Enter your age (must be 18+)"
+                               min="18"
+                               max="120"
+                               step="1"
+                               required>
+                        <div class="error-message" id="ageError"></div>
+                        <div class="hint">You must be at least 18 years old</div>
+                    </div>
+
+                    <!-- Gender Field (Radio Buttons) -->
+                    <div class="form-group">
+                        <label class="radio-label">Gender <span class="required">*</span></label>
+                        <div class="radio-group" id="genderGroup">
+                            <label class="radio-option">
+                                <input type="radio" name="gender" value="male" required>
+                                <span>Male</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="gender" value="female" required>
+                                <span>Female</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="gender" value="other" required>
+                                <span>Other</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="gender" value="prefer-not-say" required>
+                                <span>Prefer not to say</span>
+                            </label>
+                        </div>
+                        <div class="error-message" id="genderError"></div>
+                    </div>
+                </fieldset>
+
+                <!-- Terms and Conditions -->
+                <div class="terms-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="terms" required>
+                        <span>I agree to the <a href="#" target="_blank">Terms of Service</a> and <a href="#" target="_blank">Privacy Policy</a> <span class="required">*</span></span>
+                    </label>
+                    <div class="error-message" id="termsError"></div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span class="btn-text">Register Now</span>
+                    <span class="btn-icon">→</span>
+                </button>
+
+                <!-- Success Message -->
+                <div id="successMessage" class="success-message" style="display: none;">
+                    ✓ Registration successful! Welcome aboard!
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

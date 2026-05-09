@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelHub - Explore Your Next Adventure</title>
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons (Bonus) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Sticky Navbar (Bonus requirement) -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top">
+        <div class="container">
+            <!-- Brand/Logo -->
+            <a class="navbar-brand fw-bold fs-3" href="#">
+                <i class="fas fa-plane-departure me-2"></i>TravelHub
+            </a>
+            
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#destinations">Destinations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#deals">Deals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Background Image -->
+    <section class="hero-section">
+        <div class="container-fluid px-0">
+            <div class="hero-content d-flex align-items-center justify-content-center text-center text-white">
+                <div class="hero-text">
+                    <h1 class="display-3 fw-bold mb-3 animate-title">Discover Your Next Adventure</h1>
+                    <p class="lead mb-4">Explore breathtaking destinations around the world with TravelHub</p>
+                    <button class="btn btn-primary btn-lg px-5 py-3 explore-btn">
+                        Explore Now <i class="fas fa-arrow-right ms-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Destinations Section -->
+    <section id="destinations" class="destinations py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold">Popular Destinations</h2>
+                <p class="lead text-muted">Handpicked locations just for you</p>
+            </div>
+            
+            <!-- Bootstrap Grid System - Responsive cards -->
+            <div class="row g-4">
+                <!-- Card 1 -->
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="card h-100 shadow-sm destination-card">
+                        <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&h=300&fit=crop" 
+                             class="card-img-top" alt="Bali, Indonesia">
+                        <div class="card-body">
+                            <h5 class="card-title">Bali, Indonesia</h5>
+                            <p class="card-text">Experience paradise on earth with stunning beaches, rice terraces, and vibrant culture.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-primary fw-bold">$499</span>
+                                <button class="btn btn-outline-primary book-btn">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="card h-100 shadow-sm destination-card">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop" 
+                             class="card-img-top" alt="Swiss Alps">
+                        <div class="card-body">
+                            <h5 class="card-title">Swiss Alps, Switzerland</h5>
+                            <p class="card-text">Majestic mountains, scenic train rides, and world-class skiing adventures.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-primary fw-bold">$899</span>
+                                <button class="btn btn-outline-primary book-btn">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="card h-100 shadow-sm destination-card">
+                        <img src="https://images.unsplash.com/photo-1528181304800-259b46d4d9cc?w=400&h=300&fit=crop" 
+                             class="card-img-top" alt="Kyoto, Japan">
+                        <div class="card-body">
+                            <h5 class="card-title">Kyoto, Japan</h5>
+                            <p class="card-text">Ancient temples, cherry blossoms, and authentic Japanese culture.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-primary fw-bold">$699</span>
+                                <button class="btn btn-outline-primary book-btn">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="card h-100 shadow-sm destination-card">
+                        <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=400&h=300&fit=crop" 
+                             class="card-img-top" alt="Amalfi Coast">
+                        <div class="card-body">
+                            <h5 class="card-title">Amalfi Coast, Italy</h5>
+                            <p class="card-text">Stunning coastal views, delicious pasta, and charming villages.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-primary fw-bold">$749</span>
+                                <button class="btn btn-outline-primary book-btn">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 5 -->
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="card h-100 shadow-sm destination-card">
+                        <img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=400&h=300&fit=crop" 
+                             class="card-img-top" alt="Santorini">
+                        <div class="card-body">
+                            <h5 class="card-title">Santorini, Greece</h5>
+                            <p class="card-text">Iconic white buildings, blue domes, and breathtaking sunsets.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-primary fw-bold">$649</span>
+                                <button class="btn btn-outline-primary book-btn">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 6 -->
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="card h-100 shadow-sm destination-card">
+                        <img src="https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=400&h=300&fit=crop" 
+                             class="card-img-top" alt="Machu Picchu">
+                        <div class="card-body">
+                            <h5 class="card-title">Machu Picchu, Peru</h5>
+                            <p class="card-text">Ancient Incan citadel, mountain views, and historical wonder.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-primary fw-bold">$999</span>
+                                <button class="btn btn-outline-primary book-btn">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-dark text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <!-- About Column -->
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-3"><i class="fas fa-plane-departure me-2"></i>TravelHub</h5>
+                    <p>Making travel dreams come true since 2024. We offer the best travel experiences at unbeatable prices.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links Column -->
+                <div class="col-md-2 mb-4">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50 text-decoration-none">About Us</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Destinations</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Travel Guides</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Support Column -->
+                <div class="col-md-3 mb-4">
+                    <h5 class="mb-3">Support</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50 text-decoration-none">FAQs</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Contact Us</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Privacy Policy</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Newsletter Column -->
+                <div class="col-md-3 mb-4">
+                    <h5 class="mb-3">Newsletter</h5>
+                    <p>Get exclusive deals straight to your inbox</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your email">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="text-center pt-4 mt-3 border-top border-secondary">
+                <p class="mb-0">&copy; 2026 TravelHub. All rights reserved. | Designed with <i class="fas fa-heart text-danger"></i> for travelers</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle (for navbar toggle) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

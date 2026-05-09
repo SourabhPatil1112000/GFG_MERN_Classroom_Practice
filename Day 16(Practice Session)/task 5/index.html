@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Methods Mini Lab | JavaScript Learning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧪 Array Methods Mini Lab</h1>
+            <p>Learning map() | filter() | reduce() | forEach()</p>
+        </header>
+
+        <!-- Students Data Section -->
+        <section class="data-section">
+            <h2>📊 Original Students Data</h2>
+            <div class="students-table-wrapper">
+                <table class="students-table" id="originalTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Marks</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="originalData">
+                        <!-- Dynamic content from JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Array Methods Grid -->
+        <div class="methods-grid">
+            
+            <!-- Method 1: map() - Names Array -->
+            <div class="method-card">
+                <div class="method-header">
+                    <div class="method-icon">🗺️</div>
+                    <h3>.map() Method</h3>
+                    <span class="badge">Transforms</span>
+                </div>
+                <div class="method-description">
+                    <p>Creates a new array by calling a function on every element</p>
+                    <code>students.map(student => student.name)</code>
+                </div>
+                <button onclick="demonstrateMap()" class="method-btn map-btn">
+                    Get All Names →
+                </button>
+                <div class="method-result" id="mapResult"></div>
+            </div>
+
+            <!-- Method 2: filter() - Marks > 60 -->
+            <div class="method-card">
+                <div class="method-header">
+                    <div class="method-icon">🔍</div>
+                    <h3>.filter() Method</h3>
+                    <span class="badge">Filters</span>
+                </div>
+                <div class="method-description">
+                    <p>Creates a new array with elements that pass a test</p>
+                    <code>students.filter(s => s.marks > 60)</code>
+                </div>
+                <button onclick="demonstrateFilter()" class="method-btn filter-btn">
+                    Show High Achievers ( >60 ) →
+                </button>
+                <div class="method-result" id="filterResult"></div>
+            </div>
+
+            <!-- Method 3: reduce() - Total Marks -->
+            <div class="method-card">
+                <div class="method-header">
+                    <div class="method-icon">📊</div>
+                    <h3>.reduce() Method</h3>
+                    <span class="badge">Accumulates</span>
+                </div>
+                <div class="method-description">
+                    <p>Reduces array to a single value (left to right)</p>
+                    <code>students.reduce((sum, s) => sum + s.marks, 0)</code>
+                </div>
+                <button onclick="demonstrateReduce()" class="method-btn reduce-btn">
+                    Calculate Total Marks →
+                </button>
+                <div class="method-result" id="reduceResult"></div>
+            </div>
+
+            <!-- Method 4: forEach() - Print All -->
+            <div class="method-card">
+                <div class="method-header">
+                    <div class="method-icon">🔄</div>
+                    <h3>.forEach() Method</h3>
+                    <span class="badge">Iterates</span>
+                </div>
+                <div class="method-description">
+                    <p>Executes a function on each array element</p>
+                    <code>students.forEach(s => console.log(s))</code>
+                </div>
+                <button onclick="demonstrateForEach()" class="method-btn foreach-btn">
+                    Print All Students →
+                </button>
+                <div class="method-result" id="forEachResult"></div>
+            </div>
+        </div>
+
+        <!-- Bonus Section: Topper Function -->
+        <div class="bonus-section">
+            <div class="bonus-header">
+                <h2>⭐ Bonus Challenge ⭐</h2>
+                <p>Find the Topper Student using array methods</p>
+            </div>
+            <div class="bonus-content">
+                <div class="bonus-card">
+                    <h3>🏆 Who is the Topper?</h3>
+                    <button onclick="findTopper()" class="bonus-btn">
+                        Find Class Topper →
+                    </button>
+                    <div class="topper-result" id="topperResult"></div>
+                </div>
+                <div class="code-showcase">
+                    <h4>📝 Multiple Approaches:</h4>
+                    <div class="code-snippets">
+                        <div class="code-snippet">
+                            <strong>Method 1: reduce()</strong>
+                            <code>students.reduce((max, s) => s.marks > max.marks ? s : max)</code>
+                        </div>
+                        <div class="code-snippet">
+                            <strong>Method 2: sort()</strong>
+                            <code>[...students].sort((a,b) => b.marks - a.marks)[0]</code>
+                        </div>
+                        <div class="code-snippet">
+                            <strong>Method 3: for loop</strong>
+                            <code>let topper = students[0]; for(let s of students) if(s.marks > topper.marks) topper = s</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Reference -->
+        <div class="reference">
+            <h3>📚 Array Methods Cheat Sheet</h3>
+            <div class="methods-cheatsheet">
+                <div class="cheat-item">
+                    <strong>.map()</strong>
+                    <span>Returns NEW array | Same length | Transforms each element</span>
+                </div>
+                <div class="cheat-item">
+                    <strong>.filter()</strong>
+                    <span>Returns NEW array | Shorter length | Keeps elements passing test</span>
+                </div>
+                <div class="cheat-item">
+                    <strong>.reduce()</strong>
+                    <span>Returns SINGLE value | Accumulates | Start with initial value</span>
+                </div>
+                <div class="cheat-item">
+                    <strong>.forEach()</strong>
+                    <span>Returns UNDEFINED | Side effects | Just loops through</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

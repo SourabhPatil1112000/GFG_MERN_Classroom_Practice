@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure + Scope Challenge | JavaScript Deep Dive</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔐 Closure + Scope Challenge</h1>
+            <p>Understanding Closure | Scope Types | Hoisting in JavaScript</p>
+        </header>
+
+        <!-- ============================================ -->
+        <!-- SECTION 1: CLOSURE COUNTER -->
+        <!-- ============================================ -->
+        <section class="concept-section">
+            <div class="section-header">
+                <div class="section-icon">1️⃣</div>
+                <h2>Closure: Counter Example</h2>
+                <span class="concept-badge">Advanced Concept</span>
+            </div>
+            <div class="concept-description">
+                <p><strong>What is Closure?</strong> A function that "remembers" its outer variables even after the outer function has returned.</p>
+                <code>function outer() { let count = 0; return function() { count++; return count; } }</code>
+            </div>
+            
+            <div class="closure-demo">
+                <div class="counter-panel">
+                    <h3>📊 Counter Using Closure</h3>
+                    <div class="counter-display" id="counterValue">0</div>
+                    <div class="counter-buttons">
+                        <button onclick="incrementCounter()" class="counter-btn increment">+ Increment</button>
+                        <button onclick="decrementCounter()" class="counter-btn decrement">- Decrement</button>
+                        <button onclick="resetCounter()" class="counter-btn reset">⟳ Reset</button>
+                        <button onclick="createNewCounter()" class="counter-btn new">✨ New Counter</button>
+                    </div>
+                    <div class="counter-info" id="counterInfo">
+                        <small>💡 Each counter has its OWN independent state (closure magic!)</small>
+                    </div>
+                </div>
+                
+                <div class="code-explanation">
+                    <h4>📝 How Closure Works:</h4>
+                    <pre><code>
+// Outer function creates a private variable
+function createCounter(initialValue = 0) {
+    let count = initialValue;  // Private variable
+    
+    // Inner function "closes over" count
+    return {
+        increment: function() { 
+            count++; 
+            return count;
+        },
+        decrement: function() { 
+            count--; 
+            return count;
+        },
+        getValue: function() { 
+            return count; 
+        }
+    };
+}
+
+// Each counter has its OWN independent count!
+const counter1 = createCounter();
+const counter2 = createCounter(100);
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECTION 2: SCOPE TYPES (Global, Function, Block) -->
+        <!-- ============================================ -->
+        <section class="concept-section">
+            <div class="section-header">
+                <div class="section-icon">2️⃣</div>
+                <h2>Scope Types</h2>
+                <span class="concept-badge">Fundamental</span>
+            </div>
+            <div class="concept-description">
+                <p><strong>Scope</strong> determines where variables are accessible in your code.</p>
+            </div>
+            
+            <div class="scope-demos">
+                <!-- Global Scope Demo -->
+                <div class="scope-card">
+                    <h3>🌍 Global Scope</h3>
+                    <p>Variables declared outside any function - accessible EVERYWHERE</p>
+                    <button onclick="demoGlobalScope()" class="demo-btn">Test Global Scope →</button>
+                    <div id="globalResult" class="scope-result"></div>
+                    <pre><code>// Declared outside any function
+var globalVar = "I'm global";
+let globalLet = "Also global";
+const globalConst = "Global constant";
+
+// Accessible anywhere in the code</code></pre>
+                </div>
+
+                <!-- Function Scope Demo -->
+                <div class="scope-card">
+                    <h3>🔧 Function Scope</h3>
+                    <p>Variables declared INSIDE a function - accessible ONLY within that function</p>
+                    <button onclick="demoFunctionScope()" class="demo-btn">Test Function Scope →</button>
+                    <div id="functionResult" class="scope-result"></div>
+                    <pre><code>function myFunction() {
+    var functionScoped = "Only inside function";
+    let alsoFunctionScoped = "Also only inside";
+    // Cannot access outside this function!
+}</code></pre>
+                </div>
+
+                <!-- Block Scope Demo -->
+                <div class="scope-card">
+                    <h3>📦 Block Scope</h3>
+                    <p>Variables declared with let/const inside {} - accessible ONLY within that block</p>
+                    <button onclick="demoBlockScope()" class="demo-btn">Test Block Scope →</button>
+                    <div id="blockResult" class="scope-result"></div>
+                    <pre><code>if (true) {
+    let blockScoped = "Only inside this block";
+    const alsoBlockScoped = "Also block scoped";
+    var notBlockScoped = "LEAKS outside!"; // var ignores blocks!
+}
+// Cannot access let/const variables here
+// But 'notBlockScoped' is accessible!</code></pre>
+                </div>
+            </div>
+
+            <!-- Scope Comparison Table -->
+            <div class="scope-comparison">
+                <h3>📊 Scope Comparison</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Keyword</th>
+                            <th>Global Scope</th>
+                            <th>Function Scope</th>
+                            <th>Block Scope {}</th>
+                            <th>Can be Re-declared?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>var</code></td>
+                            <td>✅ Yes</td>
+                            <td>✅ Yes</td>
+                            <td>❌ No (leaks out!)</td>
+                            <td>✅ Yes</td>
+                        </tr>
+                        <tr>
+                            <td><code>let</code></td>
+                            <td>✅ Yes</td>
+                            <td>✅ Yes</td>
+                            <td>✅ Yes</td>
+                            <td>❌ No</td>
+                        </tr>
+                        <tr>
+                            <td><code>const</code></td>
+                            <td>✅ Yes</td>
+                            <td>✅ Yes</td>
+                            <td>✅ Yes</td>
+                            <td>❌ No</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECTION 3: HOISTING DEMONSTRATION -->
+        <!-- ============================================ -->
+        <section class="concept-section">
+            <div class="section-header">
+                <div class="section-icon">3️⃣</div>
+                <h2>Hoisting</h2>
+                <span class="concept-badge">Important!</span>
+            </div>
+            <div class="concept-description">
+                <p><strong>Hoisting</strong> is JavaScript's behavior of moving declarations to the top of their scope before code execution.</p>
+            </div>
+
+            <div class="hoisting-demos">
+                <!-- var Hoisting -->
+                <div class="hoisting-card">
+                    <h3>📌 var Hoisting</h3>
+                    <button onclick="demoVarHoisting()" class="hoisting-btn var-btn">Demonstrate var Hoisting →</button>
+                    <div id="varResult" class="hoisting-result"></div>
+                    <pre><code>// What you WRITE:
+console.log(myVar);  // undefined (NOT an error!)
+var myVar = "Hello";
+
+// How JavaScript READS it:
+var myVar;           // Declaration hoisted to top
+console.log(myVar);  // undefined
+myVar = "Hello";     // Assignment stays put</code></pre>
+                </div>
+
+                <!-- let Hoisting -->
+                <div class="hoisting-card">
+                    <h3>🔒 let Hoisting</h3>
+                    <button onclick="demoLetHoisting()" class="hoisting-btn let-btn">Demonstrate let Hoisting →</button>
+                    <div id="letResult" class="hoisting-result"></div>
+                    <pre><code>// What you WRITE:
+console.log(myLet);  // ReferenceError!
+let myLet = "Hello";
+
+// How JavaScript READS it:
+// let IS hoisted but NOT initialized
+// Temporal Dead Zone (TDZ) - Cannot access until declaration</code></pre>
+                </div>
+
+                <!-- function Hoisting -->
+                <div class="hoisting-card">
+                    <h3>⚡ function Hoisting</h3>
+                    <button onclick="demoFunctionHoisting()" class="hoisting-btn func-btn">Demonstrate function Hoisting →</button>
+                    <div id="funcResult" class="hoisting-result"></div>
+                    <pre><code>// What you WRITE:
+sayHello();  // Works! "Hello"
+
+function sayHello() {
+    console.log("Hello");
+}
+
+// Function declarations are COMPLETELY hoisted
+// Can be called BEFORE they are defined!</code></pre>
+                </div>
+            </div>
+
+            <!-- Hoisting Visual Explanation -->
+            <div class="hoisting-visual">
+                <h3>🎨 Visual Explanation</h3>
+                <div class="visual-container">
+                    <div class="visual-box">
+                        <h4>Before Hoisting (What you write)</h4>
+                        <div class="code-block">
+                            console.log(x);<br>
+                            var x = 5;<br>
+                            <br>
+                            console.log(y);<br>
+                            let y = 10;<br>
+                            <br>
+                            test();<br>
+                            function test() {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;console.log("hi");<br>
+                            }
+                        </div>
+                    </div>
+                    <div class="visual-arrow">⬇️ HOISTING ⬇️</div>
+                    <div class="visual-box">
+                        <h4>After Hoisting (How JS runs)</h4>
+                        <div class="code-block">
+                            var x;  // hoisted<br>
+                            function test() { // hoisted<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;console.log("hi");<br>
+                            }<br>
+                            <br>
+                            console.log(x); // undefined<br>
+                            x = 5;<br>
+                            <br>
+                            // let y is hoisted but in TDZ<br>
+                            console.log(y); // Error!<br>
+                            let y = 10;<br>
+                            <br>
+                            test(); // "hi" - works!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECTION 4: Interactive Quiz -->
+        <!-- ============================================ -->
+        <section class="quiz-section">
+            <h2>🧠 Test Your Understanding</h2>
+            <div class="quiz-container">
+                <div class="quiz-question">
+                    <p><strong>Q1:</strong> What will console.log output?</p>
+                    <pre><code>for (var i = 0; i < 3; i++) {
+    setTimeout(() => console.log(i), 100);
+}</code></pre>
+                    <button onclick="answerQuestion1()" class="quiz-btn">Show Answer</button>
+                    <div id="quiz1Result" class="quiz-result"></div>
+                </div>
+                
+                <div class="quiz-question">
+                    <p><strong>Q2:</strong> What will console.log output?</p>
+                    <pre><code>for (let i = 0; i < 3; i++) {
+    setTimeout(() => console.log(i), 100);
+}</code></pre>
+                    <button onclick="answerQuestion2()" class="quiz-btn">Show Answer</button>
+                    <div id="quiz2Result" class="quiz-result"></div>
+                </div>
+                
+                <div class="quiz-question">
+                    <p><strong>Q3:</strong> Which variables are accessible here?</p>
+                    <pre><code>{
+    var a = 1;
+    let b = 2;
+    const c = 3;
+}
+console.log(a); // ?
+console.log(b); // ?
+console.log(c); // ?</code></pre>
+                    <button onclick="answerQuestion3()" class="quiz-btn">Show Answer</button>
+                    <div id="quiz3Result" class="quiz-result"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Summary Section -->
+        <div class="summary-section">
+            <h3>📖 Key Takeaways</h3>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>🔐 Closure</strong>
+                    <p>Function + its lexical environment = remembers outer variables</p>
+                </div>
+                <div class="summary-card">
+                    <strong>🌍 Global Scope</strong>
+                    <p>Accessible everywhere, avoid polluting it!</p>
+                </div>
+                <div class="summary-card">
+                    <strong>📦 Block Scope</strong>
+                    <p>Use let/const for block-level scoping</p>
+                </div>
+                <div class="summary-card">
+                    <strong>⚠️ Hoisting</strong>
+                    <p>Declarations are hoisted, but only function declarations are fully hoisted</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
