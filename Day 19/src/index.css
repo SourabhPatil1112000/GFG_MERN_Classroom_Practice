@@ -1,0 +1,43 @@
+/* Add these rules to ensure smooth dark mode transition */
+body, .container, .student-item, input, button {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Make sure dark mode overrides work properly */
+.dark body {
+    background: var(--bg);
+}
+
+.dark .container {
+    background: linear-gradient(180deg, rgba(0,0,0,0.3), rgba(0,0,0,0.2));
+}
+
+.dark input[type="text"],
+.dark .search-input,
+.dark textarea {
+    background: #1a1f2e;
+    color: var(--text);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.dark .btn--ghost {
+    border-color: rgba(255,255,255,0.1);
+}
+
+.dark .student-item:hover {
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+}
+
+.dark .student-details {
+    background: #1a1f2e;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.3);
+}
+
+/* Make sure text is readable in dark mode */
+.dark .muted {
+    color: #94a3b8;
+}
+
+.dark .avatar {
+    background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+}
